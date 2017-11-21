@@ -20,7 +20,6 @@ class AboutContainer extends Component {
     fetch('https://r10app-95fea.firebaseio.com/code_of_conduct.json')
     .then(resp => resp.json())
     .then(data => {
-      console.log(data);
       this.setState({ data })
     })
     .catch(err => console.log(err))

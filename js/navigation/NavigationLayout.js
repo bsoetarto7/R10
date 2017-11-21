@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import Router from './routes';
 import {
+  Text
+} from 'react-native';
+import {
   StackNavigation,
   TabNavigation,
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import { colors, typography } from '../configs/styles'
 
 class NavigationLayout extends Component {
   static route = {
@@ -12,17 +19,25 @@ class NavigationLayout extends Component {
       visible: false,
     }
   }
+  renderIcon(iconName, isSelected){
+    // determine what color the icons should be base on isSelected
+    // return the icon component with appropriate props set
+    return <Icon name={iconName} size={30} color={isSelected ? colors.white : colors.mediumGrey}></Icon>
+  }
+  renderTitle(isSelected,title){
+    return <Text style={{ color: isSelected ? 'white': colors.mediumGrey, fontFamily: typography.fontMainReg }}>{title}</Text>
+  }
   render() {
     return (
       <TabNavigation
-        id="main"
-        navigatorUID="main"
-        initialTab="schedule">
+        initialTab="about"
+        tabBarColor="black">
         <TabItem
           id="schedule"
           title="schedule"
           // selectedStyle={styles.selectedTab}
-          // renderIcon={(isSelected) => <Image source={require('./assets/images/home.png')} /> }
+          renderTitle={this.renderTitle}
+          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected)}
           >
           <StackNavigation
             id="schedule"
@@ -35,7 +50,8 @@ class NavigationLayout extends Component {
           id="about"
           title="about"
           // selectedStyle={styles.selectedTab}
-          // renderIcon={(isSelected) => <Image source={require('./assets/images/posts.png')} /> }
+          renderTitle={this.renderTitle}
+          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected)}
           >
           <StackNavigation
             id="about"
