@@ -22,7 +22,7 @@ class NavigationLayout extends Component {
   renderIcon(iconName, isSelected){
     // determine what color the icons should be base on isSelected
     // return the icon component with appropriate props set
-    return <Icon name={iconName} size={30} color={isSelected ? colors.white : colors.mediumGrey}></Icon>
+    return <Icon name={iconName} size={30} color={isSelected ? colors.white : colors.mediumGrey} />
   }
   renderTitle(isSelected,title){
     return <Text style={{ color: isSelected ? 'white': colors.mediumGrey, fontFamily: typography.fontMainReg }}>{title}</Text>
@@ -34,7 +34,7 @@ class NavigationLayout extends Component {
         tabBarColor="black">
         <TabItem
           id="schedule"
-          title="schedule"
+          title="Schedule"
           // selectedStyle={styles.selectedTab}
           renderTitle={this.renderTitle}
           renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected)}
@@ -48,7 +48,7 @@ class NavigationLayout extends Component {
 
         <TabItem
           id="about"
-          title="about"
+          title="About"
           // selectedStyle={styles.selectedTab}
           renderTitle={this.renderTitle}
           renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected)}
