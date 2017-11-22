@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Text,
   View,
-  SectionList,
   ActivityIndicator
 } from 'react-native';
+
+import { SlComponent } from '../../components/SectionListComponent'
 
 const Schedule = ({sessionData, isLoading}) => {
   console.log(sessionData);
@@ -14,11 +15,7 @@ const Schedule = ({sessionData, isLoading}) => {
     )
   }else{
     return (
-      <SectionList
-        renderItem={({item}) => <Text>{item.description}</Text>}
-        renderSectionHeader={({section}) => <Text>{section.title}</Text>}
-        sections={sessionData}
-      />
+      <SlComponent data={sessionData} />
     )
   }
 }
