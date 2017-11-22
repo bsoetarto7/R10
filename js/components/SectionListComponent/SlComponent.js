@@ -21,6 +21,7 @@ const Slcomponent = ({data}) => (
         </View>
       )
     }}
+    keyExtractor={(item, index) => index}
     ItemSeparatorComponent = {()=>{
       return (
         <View
@@ -28,7 +29,7 @@ const Slcomponent = ({data}) => (
         />
       )
     }}
-    renderSectionHeader={({section}) => <Text style={styles.title}>{moment(section.title).format("hh:mm a")}</Text>}
+    renderSectionHeader={({section}) => <Text style={styles.title}>{moment(section.title).format("h:mm a")}</Text>}
     sections={data}
   />
 );

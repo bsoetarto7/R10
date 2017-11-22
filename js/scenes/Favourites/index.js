@@ -1,0 +1,1 @@
+export { default as FaveContainer } from './FaveContainer';

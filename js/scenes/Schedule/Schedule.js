@@ -8,7 +8,6 @@ import {
 import { SlComponent } from '../../components/SectionListComponent'
 
 const Schedule = ({sessionData, isLoading}) => {
-  console.log(sessionData);
   if(isLoading){
     return (
       <ActivityIndicator animating={true} size="small" color="red" />
