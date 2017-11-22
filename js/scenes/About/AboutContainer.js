@@ -9,9 +9,11 @@ class AboutContainer extends Component {
       title: 'About',
     }
   }
+
   componentDidMount(){
     this.props.dispatch(fetchConduct());
   }
+
   render(){
     const { conductData, isLoading } = this.props
     return(
