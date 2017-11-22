@@ -1,3 +1,4 @@
+// Helper to format Firebase data into section list data
 export const formatSessionData = (sessions) => {
   return sessions.reduce((acc, curr) => {
     const timeExists = acc.find(section => section.title === curr.start_time)
@@ -5,3 +6,9 @@ export const formatSessionData = (sessions) => {
     return acc;
   }, []).sort((a, b) => a.title - b.title);
 };
+
+// Helper to format format individual Firebase records
+export const formatDataObject = (data) => {
+  const dataObject = Object.getOwnPropertyNames(data).map(index => data[index]);
+  return dataObject[0];
+}

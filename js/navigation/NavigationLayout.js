@@ -30,7 +30,7 @@ class NavigationLayout extends Component {
   render() {
     return (
       <TabNavigation
-        initialTab="about"
+        initialTab="schedule"
         tabBarColor="black">
         <TabItem
           id="schedule"

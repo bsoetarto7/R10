@@ -1,11 +1,15 @@
 import React from 'react';
 import {
   Text,
-  View
+  View,
+  TouchableHighlight,
+  Image
 } from 'react-native';
 import moment from 'moment';
 
-const Session = ({ sessionData }) => {
+import { goToSpeaker } from '../../lib/navigationHelpers'
+
+const Session = ({ sessionData, speakerSingleData }) => {
   return (
     <View>
       <View>
@@ -18,6 +22,16 @@ const Session = ({ sessionData }) => {
       </View>
       <View>
         <Text>Presented by</Text>
+        {speakerSingleData ? 
+        <TouchableHighlight onPress={() => goToSpeaker(speakerSingleData)}>
+          <View>
+            <Image
+              style={{width: 60, height: 60, borderRadius: 30}}
+              source={{uri: `${speakerSingleData.image}`}}
+            />
+            <Text>{speakerSingleData.name}</Text>
+          </View> 
+        </TouchableHighlight>: false}
       </View>
     </View>
   )

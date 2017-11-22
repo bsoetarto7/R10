@@ -13,7 +13,7 @@ const SessionList = ({ data, goSession, currentNavigatorUID }) => (
   <SectionList
     renderItem={({item}) => {
       return(
-        <TouchableHighlight onPress={()=> goToSession(currentNavigatorUID, item)}>
+        <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)}>
           <View>
             <View style={styles.container}>
               <Text style={styles.subtitle}>{item.title}</Text>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Session from './Session';
+import { fetchSingleSpeaker } from '../../redux/modules/speaker';
+import { connect } from 'react-redux';
 
 class SessionContainer extends Component {
   static route = {
@@ -7,12 +9,21 @@ class SessionContainer extends Component {
       title: 'Session',
     }
   }
+  componentDidMount = () => {
+    this.props.dispatch(fetchSingleSpeaker(this.props.sessionData.speaker));
+  }
   render() {
-    const { sessionData } = this.props;
+    const { sessionData, speakerSingleData } = this.props;
     return (
-      <Session sessionData={ sessionData } /> 
+      <Session sessionData={sessionData} speakerSingleData={speakerSingleData} /> 
     );
   }
 }
 
-export default SessionContainer;
+const mapStateToProps = (state) => {
+  return {
+    speakerSingleData: state.speaker.speakerSingleData
+  }
+}
+
+export default connect(mapStateToProps)(SessionContainer);
