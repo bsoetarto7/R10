@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import Fave from './Fave'
 
 class FaveContainer extends Component {
-  state = {  }
+  static route = {
+    navigationBar: {
+      title: 'Favourites',
+    }
+  }
   render() {
     return (
       <Fave />

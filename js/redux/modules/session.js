@@ -1,4 +1,4 @@
-import { formatSessionData } from '../../lib/data-helpers'
+import { formatSessionData } from '../../lib/dataHelpers'
 // Name your actions
 const GET_SESSION_BEGIN = 'GET_SESSION_BEGIN';
 const GET_SESSION_SUCCESS = 'GET_SESSION_SUCCESS';

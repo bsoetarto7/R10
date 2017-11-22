@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
-import { fetchSession } from '../../redux/modules/session'
+import { fetchSession } from '../../redux/modules/session';
+
 
 class ScheduleContainer extends Component {
   static route = {
@@ -16,7 +17,7 @@ class ScheduleContainer extends Component {
     const { sessionData, isLoading } = this.props
 
     return(
-      <Schedule sessionData={sessionData} isLoading={ isLoading} />
+      <Schedule sessionData={sessionData} isLoading={ isLoading} currentNavigatorUID={this.props.currentNavigatorUID}/>
     )
   }
 }
@@ -24,7 +25,8 @@ class ScheduleContainer extends Component {
 const mapStateToProps = state => {
   return {
     sessionData: state.session.sessionData,
-    isLoading: state.session.isLoading
+    isLoading: state.session.isLoading,
+    currentNavigatorUID: state.navigation.currentNavigatorUID
   }
 }
 

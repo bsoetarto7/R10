@@ -5,16 +5,16 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import { SlComponent } from '../../components/SectionListComponent'
+import { SessionList } from '../../components/SessionList'
 
-const Schedule = ({sessionData, isLoading}) => {
+const Schedule = ({ sessionData, isLoading, currentNavigatorUID }) => {
   if(isLoading){
     return (
       <ActivityIndicator animating={true} size="small" color="red" />
     )
   }else{
     return (
-      <SlComponent data={sessionData} />
+      <SessionList data={sessionData} currentNavigatorUID={currentNavigatorUID}/>
     )
   }
 }
