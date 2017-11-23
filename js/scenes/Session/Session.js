@@ -3,7 +3,8 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  Button
 } from 'react-native';
 import moment from 'moment';
 
@@ -32,6 +33,13 @@ const Session = ({ sessionData, speakerSingleData }) => {
             <Text>{speakerSingleData.name}</Text>
           </View> 
         </TouchableHighlight>: false}
+      </View>
+      <View>
+      <Button
+        title="Add to Favourites"
+        color="#841584"
+        accessibilityLabel="Add session to favourite"
+      />
       </View>
     </View>
   )

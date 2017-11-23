@@ -3,11 +3,14 @@ import {
   Text,
   View,
   SectionList,
-  TouchableHighlight
+  TouchableHighlight,
+  Platform
 } from 'react-native';
 import moment from 'moment';
 import styles from './styles';
+import { colors } from '../../configs/styles'
 import { goToSession } from '../../lib/navigationHelpers';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const SessionList = ({ data, goSession, currentNavigatorUID }) => (
   <SectionList
@@ -20,6 +23,7 @@ const SessionList = ({ data, goSession, currentNavigatorUID }) => (
             </View>
             <View style={styles.container}>
               <Text style={styles.location}>{item.location}</Text>
+              <Icon name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'} size={25} color={colors.red} />
             </View>
           </View>
         </TouchableHighlight>

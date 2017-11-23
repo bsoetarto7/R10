@@ -12,10 +12,11 @@ export default StyleSheet.create({
   title:{
     backgroundColor: colors.lightGrey,
     padding:15,
+    fontSize:16,
     fontFamily:typography.fontMainReg
   },
   subtitle:{
-    fontSize:16,
+    fontSize:18,
     paddingBottom:5,
     paddingTop:15,
     fontFamily:typography.fontMainReg
