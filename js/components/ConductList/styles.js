@@ -6,7 +6,7 @@ import { colors, typography } from '../../configs/styles'
 
 export default StyleSheet.create({
   conductSubtitle:{
-    fontSize:21,
+    fontSize:16,
     fontWeight:'bold',
     marginBottom:15,
     color:colors.purple,

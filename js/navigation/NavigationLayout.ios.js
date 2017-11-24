@@ -9,9 +9,21 @@ import {
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
 
+import HeaderGradient from '../components/Header/HeaderGradient';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { colors, typography } from '../configs/styles'
+import { colors, typography } from '../configs/styles';
+
+const defaultRouteConfig = {
+  navigationBar: {
+    tintColor: 'white',
+    titleStyle: {fontFamily: typography.fontRegular},
+    renderBackground: () => (
+      <HeaderGradient colors={[colors.purple, colors.red]}/>
+    )
+  }
+}
 
 class NavigationLayout extends Component {
   static route = {
@@ -43,6 +55,7 @@ class NavigationLayout extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig = {defaultRouteConfig}
           />
         </TabItem>
 
@@ -57,6 +70,7 @@ class NavigationLayout extends Component {
             id="favourite"
             navigatorUID="favourite"
             initialRoute={Router.getRoute('favourite')}
+            defaultRouteConfig = {defaultRouteConfig}
           />
         </TabItem>
 
@@ -71,6 +85,7 @@ class NavigationLayout extends Component {
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig = {defaultRouteConfig}
           />
         </TabItem>
       </TabNavigation>
