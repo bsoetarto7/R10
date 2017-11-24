@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
 import { fetchSession } from '../../redux/modules/session';
-
+import { getAllFaves } from '../../redux/modules/favourites'
+import realm from '../../configs/models';
 
 class ScheduleContainer extends Component {
   static route = {
@@ -11,13 +12,21 @@ class ScheduleContainer extends Component {
     }
   }
   componentDidMount(){
+    realm.addListener('change', this.updateFave);
+    this.props.dispatch(getAllFaves());
     this.props.dispatch(fetchSession())
   }
+  updateFave = () => {
+    this.props.dispatch(getAllFaves());
+  }
+  componentWillUnmount = () => {
+    realm.removeListener('change', this.updateFave);
+  }
   render(){
-    const { sessionData, isLoading } = this.props
+    const { sessionData, isLoading, allFavourites } = this.props
 
     return(
-      <Schedule sessionData={sessionData} isLoading={isLoading} />
+      <Schedule sessionData={sessionData} isLoading={isLoading} allFavourites={allFavourites} />
     )
   }
 }
@@ -25,7 +34,8 @@ class ScheduleContainer extends Component {
 const mapStateToProps = state => {
   return {
     sessionData: state.session.sessionData,
-    isLoading: state.session.isLoading
+    isLoading: state.session.isLoading,
+    allFavourites: state.favourite.allFavourites
   }
 }
 

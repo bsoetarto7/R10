@@ -30,5 +30,17 @@ export default StyleSheet.create({
   container:{
     paddingRight:15,
     paddingLeft:15,
+  },
+  locationContainer:{
+    paddingRight:15,
+    paddingLeft:15,
+    flex:1,
+    flexDirection: 'row',
+    alignContent: 'center',
+    position:'relative'
+  },
+  faveHeart:{
+    position:'absolute',
+    right:15
   }
 });

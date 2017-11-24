@@ -16,5 +16,6 @@ export default StyleSheet.create({
     fontSize:16,
     fontFamily: typography.fontMainReg,
     marginBottom:15,
+    lineHeight:24
   }
 });

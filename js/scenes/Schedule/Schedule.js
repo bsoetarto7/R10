@@ -8,14 +8,14 @@ import {
 import { SessionList } from '../../components/SessionList';
 import { formatSessionData } from '../../lib/dataHelpers';
 
-const Schedule = ({ sessionData, isLoading }) => {
+const Schedule = ({ sessionData, isLoading, allFavourites }) => {
   if(isLoading){
     return (
       <ActivityIndicator animating={true} size="small" color="red" />
     )
   }else{
     return (
-      <SessionList data={formatSessionData(sessionData)} currentNavigatorUID={'schedule'}/>
+      <SessionList data={formatSessionData(sessionData)} currentNavigatorUID={'schedule'} allFavourites={allFavourites} />
     )
   }
 }

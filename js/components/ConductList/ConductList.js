@@ -12,17 +12,15 @@ import ConductItem from './ConductItem';
 
 const ConductList = ({data}) => {
   return(
-    <FlatList
-      data={data}
-      renderItem={({ item }) => 
-          <ConductItem item={item} styles={styles} />}
-      ItemSeparatorComponent = {()=>
-        <View
-          style={styles.separator}
-        />
+    <View>
+      {
+        data.map((item,index) => {
+          return (
+            <ConductItem key={index} item={item} styles={styles} />
+          )
+        })
       }
-      keyExtractor={(item, index) => index}
-    />
+    </View>
   )
 }
 
