@@ -7,11 +7,12 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-const Fave = () => {
+import { SessionList } from '../../components/SessionList';
+import { formatSessionData } from '../../lib/dataHelpers';
+
+const Fave = ({faveSession}) => {
   return(
-    <View>
-      <Text>test</Text>
-    </View>
+    <SessionList data={formatSessionData(faveSession)} currentNavigatorUID={'favourite'}/>
   )
 }
 

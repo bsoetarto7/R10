@@ -5,7 +5,8 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import { SessionList } from '../../components/SessionList'
+import { SessionList } from '../../components/SessionList';
+import { formatSessionData } from '../../lib/dataHelpers';
 
 const Schedule = ({ sessionData, isLoading }) => {
   if(isLoading){
@@ -14,7 +15,7 @@ const Schedule = ({ sessionData, isLoading }) => {
     )
   }else{
     return (
-      <SessionList data={sessionData} currentNavigatorUID={'schedule'}/>
+      <SessionList data={formatSessionData(sessionData)} currentNavigatorUID={'schedule'}/>
     )
   }
 }

@@ -8,9 +8,13 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import { goToSpeaker } from '../../lib/navigationHelpers'
+import { goToSpeaker } from '../../lib/navigationHelpers';
 
-const Session = ({ sessionData, speakerSingleData }) => {
+import { createFave, deleteFave } from '../../configs/models';
+
+const Session = ({ sessionData, speakerSingleData, allFavourites }) => {
+  console.log(sessionData.session_id)
+  console.log(allFavourites);
   return (
     <View>
       <View>
@@ -36,9 +40,10 @@ const Session = ({ sessionData, speakerSingleData }) => {
       </View>
       <View>
       <Button
-        title="Add to Favourites"
+        onPress={allFavourites.indexOf(sessionData.session_id) >=0 ? () => deleteFave(sessionData.session_id): () => createFave(sessionData.session_id)}
+        title={allFavourites.indexOf(sessionData.session_id) >=0 ? "Remove from Favourites" : "Add to Favourites"}
         color="#841584"
-        accessibilityLabel="Add session to favourite"
+        accessibilityLabel={allFavourites.indexOf(sessionData.session_id) >=0 ? "Add session to favourite" : "Remove session to favourite"}
       />
       </View>
     </View>

@@ -17,6 +17,5 @@ export const goToSpeaker = (speakerSingleData) => {
 }
 
 export const closeSpeaker = () => {
-  console.log('tset');
   Store.dispatch(NavigationActions.pop('root'));
 }
