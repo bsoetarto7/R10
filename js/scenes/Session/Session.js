@@ -13,8 +13,6 @@ import { goToSpeaker } from '../../lib/navigationHelpers';
 import { createFave, deleteFave } from '../../configs/models';
 
 const Session = ({ sessionData, speakerSingleData, allFavourites }) => {
-  console.log(sessionData.session_id)
-  console.log(allFavourites);
   return (
     <View>
       <View>

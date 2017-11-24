@@ -3,7 +3,7 @@ import Session from './Session';
 import { fetchSingleSpeaker } from '../../redux/modules/speaker';
 import { connect } from 'react-redux';
 import { queryFaves } from '../../configs/models';
-import { setAllFave } from '../../redux/modules/favourites';
+import { getAllFaves } from '../../redux/modules/favourites';
 import realm from '../../configs/models';
 
 class SessionContainer extends Component {
@@ -13,27 +13,18 @@ class SessionContainer extends Component {
     }
   }
   componentDidMount = () => {
-    const allFave = queryFaves().reduce((acc,curr)=>{
-      acc.push(curr.id);
-      return acc
-    }, []);
-    this.props.dispatch(setAllFave(allFave));
-    this.props.dispatch(fetchSingleSpeaker(this.props.sessionData.speaker));
     realm.addListener('change', this.updateFave);
+    this.props.dispatch(getAllFaves());
+    this.props.dispatch(fetchSingleSpeaker(this.props.sessionData.speaker));
   }
   updateFave = () => {
-    const allFave = queryFaves().reduce((acc,curr)=>{
-      acc.push(curr.id);
-      return acc
-    }, []);
-    this.props.dispatch(setAllFave(allFave));
+    this.props.dispatch(getAllFaves());
   }
   componentWillUnmount = () => {
     realm.removeListener('change', this.updateFave);
   }
   render() {
     const { sessionData, speakerSingleData, allFavourites } = this.props;
-    console.log(allFavourites);
     return (
       <Session sessionData={sessionData} speakerSingleData={speakerSingleData} allFavourites={allFavourites} /> 
     );

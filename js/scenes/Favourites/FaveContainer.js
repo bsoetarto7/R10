@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Fave from './Fave'
 import { queryFaves } from '../../configs/models';
 import { connect } from 'react-redux';
-import { setAllFave } from '../../redux/modules/favourites';
+import { getAllFaves } from '../../redux/modules/favourites';
 import realm from '../../configs/models';
 
 class FaveContainer extends Component {
@@ -13,19 +13,11 @@ class FaveContainer extends Component {
   }
 
   componentDidMount = () => {
-    const allFave = queryFaves().reduce((acc,curr)=>{
-      acc.push(curr.id);
-      return acc
-    }, []);
-    this.props.dispatch(setAllFave(allFave));
+    this.props.dispatch(getAllFaves());
     realm.addListener('change', this.updateFave);
   }
   updateFave = () => {
-    const allFave = queryFaves().reduce((acc,curr)=>{
-      acc.push(curr.id);
-      return acc
-    }, []);
-    this.props.dispatch(setAllFave(allFave));
+    this.props.dispatch(getAllFaves());
   }
   componentWillUnmount = () => {
     realm.removeListener('change', this.updateFave);
