@@ -18,8 +18,10 @@ class ConductItem extends Component {
       && UIManager.setLayoutAnimationEnabledExperimental(true);
     }
     super();
+    this.duration = 300
     this.state={
       showText:false,
+      toggleIcon:false,
       spinValue: new Animated.Value(0)
     }
   }
@@ -30,7 +32,7 @@ class ConductItem extends Component {
         this.state.spinValue, 
         { 
           toValue: 1,
-          duration: 300,
+          duration: this.duration,
           easing:Easing.elastic(0.4)
         }
       )
@@ -42,10 +44,17 @@ class ConductItem extends Component {
     })
   }
   toggleText = () => {
-    const { showText } = this.state
+    const { showText, toggleIcon } = this.state
     this.setState({
-      showText: !showText
+      showText: !showText,
     });
+
+    setTimeout(() => {
+      this.setState({
+        toggleIcon: !toggleIcon
+      })
+    }, !showText? this.duration : 0);
+    
     if(showText){
       this.reset()
     }
@@ -53,7 +62,6 @@ class ConductItem extends Component {
   }
   render() {
     const { styles, item } = this.props;
-    console.log(this.state.spinValue);
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg']
@@ -68,7 +76,7 @@ class ConductItem extends Component {
               transform: [{rotate: spin}]
             }}
           >
-            <Icon name={!this.state.showText ? Platform.OS === 'ios' ? 'ios-add' : 'md-add' : Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'} size={20} color={colors.purple} />
+            <Icon name={!this.state.toggleIcon ? Platform.OS === 'ios' ? 'ios-add' : 'md-add' : Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'} size={20} color={colors.purple} />
           </Animated.View> {item.title}
         </Text>
         {this.state.showText ? <Text style={styles.description}>{item.description}</Text> : false}

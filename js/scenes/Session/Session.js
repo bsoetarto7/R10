@@ -39,7 +39,7 @@ const Session = ({ sessionData, speakerSingleData, allFavourites }) => {
         <View style={styles.subContainer}>
           <Text style={styles.speakerLabel}>Presented by</Text>
           {speakerSingleData ? 
-          <TouchableHighlight onPress={() => goToSpeaker(speakerSingleData)}>
+          <TouchableHighlight underlayColor={colors.lightGrey} onPress={() => goToSpeaker(speakerSingleData)}>
             <View style={styles.speakerInfo}>
               <Image
                 style={{width: 60, height: 60, borderRadius: 30}}

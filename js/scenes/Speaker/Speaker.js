@@ -17,7 +17,7 @@ const Speaker = ({ speakerSingleData }) => {
   return(
     <ScrollView>
       <View style={styles.header}>
-        <TouchableHighlight underlayColor={colors.white} onPress={() => closeSpeaker()}>
+        <TouchableHighlight underlayColor={colors.black} onPress={() => closeSpeaker()}>
           <Icon name={'ios-close'} size={30} color={'white'} />
         </TouchableHighlight>
         <Text style={styles.headerTitle}>About the Speaker</Text>
