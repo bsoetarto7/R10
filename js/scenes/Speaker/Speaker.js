@@ -3,31 +3,52 @@ import{
   View,
   Text,
   Image,
-  Linking
+  Linking,
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { closeSpeaker } from '../../lib/navigationHelpers'
+import { closeSpeaker } from '../../lib/navigationHelpers';
+import styles from './styles';
+import { colors, typography } from '../../configs/styles';
+
 const Speaker = ({ speakerSingleData }) => {
   return(
-    <View>
-      <View style={{backgroundColor:'black'}}>
-        <Icon name={'ios-close'} size={30} color={'white'} onPress={() => closeSpeaker()} />
-        <Text style={{color:'white'}}>About the Speaker</Text>
+    <ScrollView>
+      <View style={styles.header}>
+        <TouchableHighlight underlayColor={colors.white} onPress={() => closeSpeaker()}>
+          <Icon name={'ios-close'} size={30} color={'white'} />
+        </TouchableHighlight>
+        <Text style={styles.headerTitle}>About the Speaker</Text>
       </View>
-      <Image
-        style={{}}
-      />
-      <Image
-        style={{width: 60, height: 60, borderRadius: 30}}
-        source={{uri: `${speakerSingleData.image}`}}
-      />
-      <Text>{speakerSingleData.name}</Text>
-      <Text>{speakerSingleData.bio}</Text>
-      <Text style={{color: 'blue'}}
-            onPress={() => Linking.openURL(`${speakerSingleData.url}`)}>
-        Read More on Wikipedia 
-      </Text>
-    </View>
+      <View style={styles.blackContainer}>
+        <View style={styles.whiteContainer}>
+          <Image
+            style={styles.speakerImage}
+            source={{uri: `${speakerSingleData.image}`}}
+          />
+          <Text style={styles.speakerTitle}>{speakerSingleData.name}</Text>
+          <Text style={styles.speakerBio}>{speakerSingleData.bio}</Text>
+          <View style={styles.buttonContainer}>
+            <LinearGradient 
+              start={{x: 0, y: 0}} 
+              end={{x: 1, y: 0}}
+              locations={[0,1]}
+              colors={[colors.purple, colors.blue]}
+              style={styles.buttonGradient}>
+                <TouchableHighlight underlayColor={colors.purple} onPress={() => Linking.openURL(`${speakerSingleData.url}`)}>
+                  <View style={styles.button}>
+                      <Text style={styles.buttonText}>
+                        Read More on Wikipedia 
+                      </Text>
+                  </View>
+                </TouchableHighlight>
+            </LinearGradient>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   )
 };
 

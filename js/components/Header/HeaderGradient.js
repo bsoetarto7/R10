@@ -10,6 +10,7 @@ const HeaderGradient = ({colors}) => {
       locations={[0,1]}
       colors={colors}
       style={styles.linearGradient}>
+      
     </LinearGradient>
   )
 }
