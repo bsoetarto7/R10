@@ -41,5 +41,11 @@ export default StyleSheet.create({
   faveHeart:{
     position:'absolute',
     right:15
+  },
+  infoText:{
+    paddingTop:20,
+    fontSize:16,
+    fontFamily:typography.fontMainReg,
+    textAlign:'center'
   }
 });

@@ -28,7 +28,7 @@ class FaveContainer extends Component {
       return allFavourites.indexOf(session.session_id) >= 0
     });
     return (
-      <Fave faveSession={faveSession} />
+      <Fave faveSession={faveSession} allFavourites ={allFavourites} />
     );
   }
 }

@@ -10,9 +10,9 @@ import {
 import { SessionList } from '../../components/SessionList';
 import { formatSessionData } from '../../lib/dataHelpers';
 
-const Fave = ({faveSession}) => {
+const Fave = ({faveSession, allFavourites}) => {
   return(
-    <SessionList data={formatSessionData(faveSession)} currentNavigatorUID={'favourite'}/>
+    <SessionList data={formatSessionData(faveSession)} currentNavigatorUID={'favourite'} allFavourites={allFavourites}/>
   )
 }
 
