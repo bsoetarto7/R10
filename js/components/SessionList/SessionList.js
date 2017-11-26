@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 import styles from './styles';
-import { colors } from '../../configs/styles'
+import { colors } from '../../configs/styles';
 import { goToSession } from '../../lib/navigationHelpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 
