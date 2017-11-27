@@ -1,5 +1,5 @@
 # R10 App
-A fully functional mobile app (IOS/Android) for an upcoming developer conference. Users can use this app to see upcoming conferences and bookmark as favourites if they need liked the conferences or would like to go see it. It contains a section list of conferences grouped by the time the conferences started.
+A fully functional mobile app (IOS/Android) for an upcoming developer conference. Users can use this app to see upcoming conferences and bookmark them as favourites if they liked the conferences or would like to go see it. It contains a section list of conferences grouped by the time the conferences started.
 
 ## Built With
 
@@ -21,7 +21,7 @@ cd R10 && npm install
 From inside the `root` directory, run:
 
 ```bash
-eact-native run-ios --simulator="iPhone SE"
+react-native run-ios --simulator="iPhone SE"
 ```
 
 ## Authors
