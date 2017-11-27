@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchSession } from '../../redux/modules/session';
 import { getAllFaves } from '../../redux/modules/favourites'
 import realm from '../../configs/models';
@@ -10,6 +11,11 @@ class ScheduleContainer extends Component {
     navigationBar: {
       title: 'Schedule',
     }
+  }
+  static propTypes = {
+    sessionData: PropTypes.array.isRequired,
+    isLoading : PropTypes.bool.isRequired,
+    allFavourites : PropTypes.array.isRequired
   }
   componentDidMount(){
     realm.addListener('change', this.updateFave);

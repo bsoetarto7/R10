@@ -7,6 +7,7 @@ import {
   Animated,
   Easing
 } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { colors } from '../../configs/styles';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -25,6 +26,12 @@ class ConductItem extends Component {
       spinValue: new Animated.Value(0)
     }
   }
+
+  static propTypes = {
+    item: PropTypes.object.isRequired,
+    styles : PropTypes.object.isRequired
+  }
+
   animate = () => {
     LayoutAnimation.easeInEaseOut();
     Animated.parallel([

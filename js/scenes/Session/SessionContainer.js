@@ -5,12 +5,18 @@ import { connect } from 'react-redux';
 import { queryFaves } from '../../configs/models';
 import { getAllFaves } from '../../redux/modules/favourites';
 import realm from '../../configs/models';
+import PropTypes from 'prop-types';
 
 class SessionContainer extends Component {
   static route = {
     navigationBar: {
       title: 'Session',
     }
+  }
+  static propTypes = {
+    sessionData: PropTypes.object.isRequired,
+    speakerSingleData : PropTypes.object.isRequired,
+    allFavourites : PropTypes.array.isRequired
   }
   componentDidMount = () => {
     realm.addListener('change', this.updateFave);

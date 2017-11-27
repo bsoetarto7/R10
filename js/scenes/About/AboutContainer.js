@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import About from './About';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchConduct } from '../../redux/modules/conduct'
 
@@ -8,6 +9,11 @@ class AboutContainer extends Component {
     navigationBar: {
       title: 'About',
     }
+  }
+
+  static propTypes = {
+    conductData: PropTypes.array.isRequired,
+    isLoading : PropTypes.bool.isRequired
   }
 
   componentDidMount(){

@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { closeSpeaker } from '../../lib/navigationHelpers';
 import styles from './styles';
 import { colors, typography } from '../../configs/styles';
+import PropTypes from 'prop-types';
 
 const Speaker = ({ speakerSingleData }) => {
   return(
@@ -51,5 +52,9 @@ const Speaker = ({ speakerSingleData }) => {
     </ScrollView>
   )
 };
+
+Speaker.propTypes = {
+  speakerSingleData: PropTypes.object.isRequired
+}
 
 export default Speaker;

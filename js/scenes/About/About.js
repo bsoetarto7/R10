@@ -6,8 +6,8 @@ import {
   ActivityIndicator,
   ScrollView
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { ConductList } from '../../components/ConductList';
-
 import styles from './styles';
 
 const About = ({ data, isLoading }) => {
@@ -34,4 +34,10 @@ const About = ({ data, isLoading }) => {
     );
   }
 }
+
+About.propTypes = {
+  data: PropTypes.array.isRequired,
+  isLoading : PropTypes.bool.isRequired
+}
+
 export default About;

@@ -6,7 +6,7 @@ import {
   ScrollView,
   Image
 } from 'react-native';
-
+import PropTypes from 'prop-types';
 import styles from './styles';
 import ConductItem from './ConductItem';
 
@@ -22,6 +22,10 @@ const ConductList = ({data}) => {
       }
     </View>
   )
+}
+
+ConductList.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 export default ConductList;

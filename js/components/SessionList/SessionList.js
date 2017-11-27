@@ -6,13 +6,14 @@ import {
   TouchableHighlight,
   Platform
 } from 'react-native';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import styles from './styles';
 import { colors } from '../../configs/styles';
 import { goToSession } from '../../lib/navigationHelpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const SessionList = ({ data, goSession, currentNavigatorUID, allFavourites }) => {
+const SessionList = ({ data, currentNavigatorUID, allFavourites }) => {
   if(data.length > 0){
     return (
       <SectionList
@@ -50,6 +51,12 @@ const SessionList = ({ data, goSession, currentNavigatorUID, allFavourites }) =>
       </View>
     )
   }
+}
+
+SessionList.propTypes = {
+  data: PropTypes.array.isRequired,
+  currentNavigatorUID: PropTypes.string.isRequired,
+  allFavourites: PropTypes.array.isRequired
 }
 
 export default SessionList;

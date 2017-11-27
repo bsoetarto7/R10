@@ -2,6 +2,8 @@ import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles';
 import { colors } from '../../configs/styles';
+import PropTypes from 'prop-types';
+
 const HeaderGradient = ({colors}) => {
   return (
     <LinearGradient 
@@ -14,4 +16,9 @@ const HeaderGradient = ({colors}) => {
     </LinearGradient>
   )
 }
+
+HeaderGradient.propTypes = {
+  colors: PropTypes.array.isRequired
+}
+
 export default HeaderGradient;

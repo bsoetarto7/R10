@@ -9,17 +9,12 @@ import {
   ScrollView
 } from 'react-native';
 import moment from 'moment';
-
+import PropTypes from 'prop-types';
 import { goToSpeaker } from '../../lib/navigationHelpers';
-
 import { createFave, deleteFave } from '../../configs/models';
-
 import Icon from 'react-native-vector-icons/Ionicons';
-
 import LinearGradient from 'react-native-linear-gradient';
-
 import styles from './styles';
-
 import { colors, typography } from '../../configs/styles';
 
 const Session = ({ sessionData, speakerSingleData, allFavourites }) => {
@@ -71,5 +66,10 @@ const Session = ({ sessionData, speakerSingleData, allFavourites }) => {
   )
 }
 
+Session.propTypes = {
+  sessionData: PropTypes.object.isRequired,
+  speakerSingleData : PropTypes.object.isRequired,
+  allFavourites : PropTypes.array.isRequired
+}
 
 export default Session;

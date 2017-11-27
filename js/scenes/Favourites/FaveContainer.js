@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Fave from './Fave'
+import Fave from './Fave';
+import PropTypes from 'prop-types';
 import { queryFaves } from '../../configs/models';
 import { connect } from 'react-redux';
 import { getAllFaves } from '../../redux/modules/favourites';
@@ -11,7 +12,10 @@ class FaveContainer extends Component {
       title: 'Favourites',
     }
   }
-
+  static propTypes = {
+    sessionData: PropTypes.array.isRequired,
+    allFavourites : PropTypes.array.isRequired
+  }
   componentDidMount = () => {
     this.props.dispatch(getAllFaves());
     realm.addListener('change', this.updateFave);
