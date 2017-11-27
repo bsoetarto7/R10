@@ -5,7 +5,8 @@ import {
   LayoutAnimation,
   Platform,
   Animated,
-  Easing
+  Easing,
+  UIManager
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -75,7 +76,7 @@ class ConductItem extends Component {
     });
     return (
       <View>
-        <Text style={styles.conductSubtitle} onPress={this.toggleText}>
+        <View style={styles.conductTitle}>
           <Animated.View
             style={{
               width:16,
@@ -84,8 +85,9 @@ class ConductItem extends Component {
             }}
           >
             <Icon name={!this.state.toggleIcon ? Platform.OS === 'ios' ? 'ios-add' : 'md-add' : Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'} size={20} color={colors.purple} />
-          </Animated.View> {item.title}
-        </Text>
+          </Animated.View> 
+          <Text style={styles.conductSubtitle} onPress={this.toggleText}>{item.title}</Text>
+        </View>
         {this.state.showText ? <Text style={styles.description}>{item.description}</Text> : false}
       </View>
     );

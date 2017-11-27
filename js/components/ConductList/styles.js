@@ -10,12 +10,17 @@ export default StyleSheet.create({
     fontWeight:'bold',
     marginBottom:15,
     color:colors.purple,
-    fontFamily: typography.fontMainReg
+    fontFamily: typography.fontMainReg,
+    marginLeft: 10
   },
   description:{
     fontSize:16,
     fontFamily: typography.fontMainReg,
     marginBottom:15,
     lineHeight:24
+  },
+  conductTitle:{
+    flexDirection:'row',
+    alignContent:'center',
   }
 });
